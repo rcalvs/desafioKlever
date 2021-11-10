@@ -1,19 +1,31 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { saveEmail } from '../actions';
 
-function Login(){
-  const [disabled, setDisabled] = useState('true')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+function Login(props){
+  const [disabled, setDisabled] = useState(true)
+  const [user, setUser] = useState({})
 
-  const validateLoginInfos = () => {
-    const regexEmail = new RegExp(/^[\S.]+@[a-z]+.\w{2,3}$/g).test(email);
-    const regexPass = new RegExp(/[0-9a-zA-Z$*&@#]{6}/).test(password);
+  const validateLogin = (user) => {
+    const regexEmail = new RegExp(/^[\S.]+@[a-z]+.\w{2,3}$/g).test(user.email);
+    const regexPass = new RegExp(/[0-9a-zA-Z$*&@#]{6}/).test(user.password);
     if (regexEmail && regexPass) {
-      setDisabled('false')
+      console.log(user);
+      setDisabled(false)
     } else {
-      setDisabled('true')
+      console.log(user);
+      setDisabled(true)
     }
   }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser({...user,
+      [name]: value,
+    });
+    validateLogin(user);
+  };
 
   return (
     <div>
@@ -27,7 +39,7 @@ function Login(){
             type="email"
             name="email"
             id="email-input"
-            onChange={ (e) => console.log(e.target.value) }
+            onChange={ (e) => handleChange(e) }
             required
           />
         </label>
@@ -40,25 +52,29 @@ function Login(){
             type="password"
             name="password"
             id="password-input"
-            onChange={ (e) => console.log(e.target.value) }
+            onChange={ (e) => handleChange(e) }
             required
           />
         </label>
-        {/* <Link to="/wallet"> */}
+        <Link to="/wallet">
           <button
             type="button"
             id="login-button"
-            onClick={ (e) => console.log(e.target.value) }
+            onClick={ () => props.addEmail(user.email) }
             disabled={ disabled }
           >
             Entrar
           </button>
-        {/* </Link> */}
+        </Link>
       </form>
 
-    </div>  
-  
+    </div>
   )
-} 
+}
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  addEmail: (email) => dispatch(saveEmail(email)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
+// export default Login;

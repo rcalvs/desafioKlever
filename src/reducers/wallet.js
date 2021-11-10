@@ -8,18 +8,18 @@ const INITIAL_STATE = {
 
 function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
-  case SAVE_EXPENSE:
-    return { ...state, expenses: [...state.expenses, action.expenseDetails] };
-  case DELETE_EXPENSE:
-    return { ...state, expenses: [...action.filteredExpenses] };
-  case GET_EXPENSE:
-    return { ...state, setExpenses: action.getExpenseDetails };
-  case EDIT_EXPENSE:
-    return {
-      ...state,
-      expenses: [...action.editedExpenses],
-      setExpenses: {},
-    };
+    case SAVE_EXPENSE:
+      return { ...state, expenses: [...state.expenses, action.expenseDetails] };
+    case DELETE_EXPENSE:
+      return { ...state, expenses: [...action.filteredExpenses] };
+    case GET_EXPENSE:
+      return { ...state, setExpenses: action.getExpenseDetails };
+    case EDIT_EXPENSE:
+      return {
+        ...state,
+        expenses: [...action.editedExpenses],
+        setExpenses: {},
+      };
   default:
     return state;
   }

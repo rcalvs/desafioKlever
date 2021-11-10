@@ -1,7 +1,7 @@
 import { SAVE_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
-  email: '',
+  email: 'email@gmail',
 };
 
 function user(state = INITIAL_STATE, action) {

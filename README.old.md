@@ -1,13 +1,9 @@
-# Desafio Lexart - FrontEnd
+# Desafio Klever - FrontEnd
 
 Aqui estão as ferramentas desenvolvidas no FrontEnd do projeto, as tecnologias utilizadas foram:
 
 - React
-- Axios
 - TailwindCSS
-- Deploy com Heroku
-
-[Clique aqui para visualizá-lo o projeto pronto](https://rcalvs-lexartFront.herokuapp.com/)
 
 ---
 ## Scripts Disponíveis

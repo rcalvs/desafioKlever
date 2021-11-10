@@ -1,16 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Header(){
-   
-  
+function Header(props){
+    
   return (
     <header>
-      <p>
-        E-mail:
+      <p> {`email: ${props.email}`}
       </p>
       <p>BRL</p>
     </header>
   )
-} 
+}
 
-export default Header;
+const mapStateToProps = (state) => ({
+});
+
+export default connect(mapStateToProps)(Header);

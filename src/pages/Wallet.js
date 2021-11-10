@@ -8,7 +8,7 @@ function Wallet(props){
   console.log(props.email);
   return (
     <div>
-      <Header />
+      <Header email={props.email}/>
       <Form />
       <Table />
     </div>

@@ -19,8 +19,8 @@ function Login(props){
     }
   }
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setUser({...user,
       [name]: value,
     });
@@ -77,4 +77,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(Login);
-// export default Login;

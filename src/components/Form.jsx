@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { saveExpense, editExpense } from '../actions';
 
 function Form(props) {
-  const [expense, setExpense] = useState({})
-  
+  const [ expense, setExpense ] = useState({})
+  console.log(props);
 
   useEffect(() => {
     const initialExpense = {
@@ -25,17 +25,17 @@ function Form(props) {
   //   }
   // },[])
 
-  const getExpenseDetailsToEdit = () => {
-    const { expenseToEdit } = props;
-    const { value, description, currency, method, tag } = expenseToEdit;
-    setExpense({...expense, 
-      value,
-      description,
-      currency,
-      method,
-      tag,
-    });
-  }
+  // const getExpenseDetailsToEdit = () => {
+  //   const { expenseToEdit } = props;
+  //   const { value, description, currency, method, tag } = expenseToEdit;
+  //   setExpense({...expense, 
+  //     value,
+  //     description,
+  //     currency,
+  //     method,
+  //     tag,
+  //   });
+  // }
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -43,7 +43,6 @@ function Form(props) {
       [name]: value
     });
   }
-
 
   const changeButtonName = () => {
     const { expenseToEdit = {} } = props;
@@ -55,51 +54,27 @@ function Form(props) {
   }
 
   const handleClick = (e) => {
-    const { id, value, description, currency, method, tag } = expense;
-    console.log(currency, value, description, method, tag);
     const {
-      expenses,
-      expenseToEdit,
+      // expenses,
+      // expenseToEdit,
       dispatchSaveExpense,
-      dispatchEditExpense,
+      // dispatchEditExpense,
     } = props;
     const { name } = e.target;
     if (name === 'Adicionar despesa') {
-      const expenseDetailed = {
-        id,
-        value,
-        description,
-        currency,
-        method,
-        tag,
-      };
-      dispatchSaveExpense(expenseDetailed);
+      console.log();
+      dispatchSaveExpense(expense);
       setExpense({...expense,
-        id: id + 1,
+        id: expense.id + 1,
         value: '',
         description: '',
       });
     } else {
-      const expenseDetailed = {
-        id: expenseToEdit.id,
-        value,
-        description,
-        currency,
-        method,
-        tag,
-      };
-      const editedExpenses = expenses.map((expense) => {
-        if (expense.id === expenseToEdit.id) {
-          return expenseDetailed;
-        }
-        return expense;
-      });
       console.log('edit button');
-      dispatchEditExpense(editedExpenses);
     }
   }
 
-  console.log(expense)
+  // console.log(expense)
   return (
     <div>
       <form>
@@ -137,8 +112,9 @@ function Form(props) {
             </select>
           </label>
         </form>
-        <button type="button" onClick={ (e) => handleClick(e) }>
-        { changeButtonName() }
+        <button type="button" name="Adicionar despesa" onClick={ (e) => handleClick(e) }>
+        {/* { changeButtonName() } */}
+        Adicionar despesa
         </button>
       </div> 
     )

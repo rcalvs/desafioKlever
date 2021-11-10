@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SAVE_EXPENSE:
+      console.log(action);
       return { ...state, expenses: [...state.expenses, action.expenseDetails] };
     case DELETE_EXPENSE:
       return { ...state, expenses: [...action.filteredExpenses] };

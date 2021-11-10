@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteExpense, getExpense } from '../actions';
 
 function Table(props) {
-  
+  console.log(props);
   const handleClick = (key, e) => {
     const { expenses, globalDeleteExpense, globalGetExpense } = props;
     const { name } = e.target;
@@ -26,12 +26,6 @@ function Table(props) {
           <td>{ expense.tag}</td>
           <td>{ expense.method }</td>
           <td>{ expense.value }</td>
-          <td>{ expense.exchangeRates[expense.currency].name }</td>
-          <td>{ parseFloat(expense.exchangeRates[expense.currency].ask).toFixed(2) }</td>
-          <td>
-            { parseFloat(expense.value * expense.exchangeRates[expense.currency].ask)
-              .toFixed(2) }
-          </td>
           <td>Real</td>
           <td>
             <button
@@ -68,9 +62,6 @@ function Table(props) {
         <th>Método de pagamento</th>
         <th>Valor</th>
         <th>Moeda</th>
-        <th>Câmbio utilizado</th>
-        <th>Valor convertido</th>
-        <th>Moeda de conversão</th>
         <th>Editar/Excluir</th>
       </tr>
     </thead>

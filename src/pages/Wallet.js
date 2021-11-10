@@ -5,7 +5,6 @@ import Form from '../components/Form';
 import Table from '../components/Table';
 
 function Wallet(props){
-  console.log(props.email);
   return (
     <div>
       <Header email={props.email}/>

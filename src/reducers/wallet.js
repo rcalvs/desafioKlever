@@ -1,29 +1,44 @@
-import { SAVE_EXPENSE, DELETE_EXPENSE, GET_EXPENSE, EDIT_EXPENSE } from '../actions';
+import {
+  REQUEST_CURRENCIES,
+  WALLET_CURRENCIES,
+  FAILED_CURRENCIES,
+  ADD_EXPENSES,
+  EDIT_EXPENSES,
+  DELETE_EXPENSE,
+} from '../actions';
 
 const INITIAL_STATE = {
+  loading: false,
+  error: '',
   currencies: [],
   expenses: [],
-  setExpenses: {},
+  edit: false,
+  id: 0,
 };
 
-function wallet(state = INITIAL_STATE, action) {
+function userWalletReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case SAVE_EXPENSE:
-      console.log(action);
-      return { ...state, expenses: [...state.expenses, action.expenseDetails] };
-    case DELETE_EXPENSE:
-      return { ...state, expenses: [...action.filteredExpenses] };
-    case GET_EXPENSE:
-      return { ...state, setExpenses: action.getExpenseDetails };
-    case EDIT_EXPENSE:
-      return {
-        ...state,
-        expenses: [...action.editedExpenses],
-        setExpenses: {},
-      };
+  case REQUEST_CURRENCIES:
+    return { ...state, loading: true };
+
+  case WALLET_CURRENCIES:
+    return { ...state, loading: false, currencies: action.payload };
+
+  case FAILED_CURRENCIES:
+    return { ...state, loading: false, error: action.payload };
+
+  case ADD_EXPENSES:
+    return { ...state, expenses: [...state.expenses, action.payload] };
+
+  case EDIT_EXPENSES:
+    return { ...state, edit: action.edit, id: action.id };
+
+  case DELETE_EXPENSE:
+    return { ...state, expenses: action.payload };
+
   default:
     return state;
   }
 }
 
-export default wallet;
+export default userWalletReducer;

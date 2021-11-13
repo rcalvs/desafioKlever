@@ -21,7 +21,7 @@ const elements = {
     },
     {
       control: 'method',
-      text: 'Método de pagamento',
+      text: 'Método',
       testid: 'method-input',
     },
     {
@@ -39,10 +39,10 @@ const elements = {
     'Tag',
     'Método de pagamento',
     'Valor',
-    'Moeda',
     'Câmbio utilizado',
-    'Valor convertido',
     'Moeda de conversão',
+    'Valor convertido',
+    'Convertido para',
     'Editar/Excluir',
   ],
 };

@@ -11,32 +11,34 @@ const TBody = () => {
   };
   const renderTBody = () => expenses.map((expense) => {
     const {
-      id, description, method, value, tag, exchangeRates, currency, coin,
+      id, description, method, value, tag, exchangeRates, currency,
     } = expense;
+    console.log(expense);
     const { ask, name } = exchangeRates[currency];
     const convertedValue = (value * ask).toFixed(2);
     const cointConverted = name.split('/')[0];
     return (
-      <tbody key={ id }>
-        <tr>
+      <tbody className="text-gray-800 p-2" key={ id }>
+        <tr className="text-center">
           <td>{description}</td>
           <td>{tag}</td>
           <td>{method}</td>
-          <td>{value}</td>
-          <td>{coin}</td>
+          <td className="font-bold">{value}</td>
           <td>{parseFloat(ask).toFixed(2)}</td>
           <td>{cointConverted}</td>
-          <td>{convertedValue}</td>
+          <td className="italic">{convertedValue}</td>
           <td>Real</td>
           <td>
             <button
               type="button"
+              className="text-red-600 m-2"
               onClick={ () => removeExpense(id) }
               data-testid="delete-btn"
             >
               Deletar
             </button>
             <button
+              className="text-yellow-600 m-2"
               type="button"
               onClick={ () => dispatch(editExpenses(true, id)) }
               data-testid="edit-btn"

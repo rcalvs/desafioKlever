@@ -33,7 +33,7 @@ const FormWallet = () => {
   }, []);
 
   return (
-    <form>
+    <form className="mt-4 flex m-auto">
       {inputs.map((input) => (
         <LabelInput key={ input.control } input={ input } getExpense={ getExpense } />
       ))}
@@ -47,7 +47,11 @@ const FormWallet = () => {
         />
       ))}
 
-      <button type="button" onClick={ () => dispatch(fetchExpenses(expense)) }>
+      <button
+        className="bg-green-500 rounded-md p-1 text-white font-bold"
+        type="button"
+        onClick={ () => dispatch(fetchExpenses(expense)) }
+      >
         Adicionar despesa
       </button>
     </form>

@@ -35,7 +35,7 @@ const EditFormWallet = () => {
   }, []);
 
   return (
-    <form>
+    <form className="mt-4 flex m-auto">
       {inputs.map((input) => (
         <LabelInput key={ input.control } input={ input } getExpense={ getExpense } />
       ))}
@@ -47,7 +47,7 @@ const EditFormWallet = () => {
           getExpense={ getExpense }
         />
       ))}
-      <button type="button" onClick={ () => editExpense() }>
+      <button className="bg-yellow-500 rounded-md p-1 text-white font-bold" type="button" onClick={ () => editExpense() }>
         Editar despesa
       </button>
     </form>

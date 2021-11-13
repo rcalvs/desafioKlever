@@ -26,8 +26,8 @@ const Login = () => {
     <div class="h-screen  flex justify-center items-center">
       <div className="bg-indigo-700 rounded-lg w-1/5 py-10 px-4 shadow-2xl">
       <div className="pb-6 p-0">
-        <span className="mx-4 text-white font-bold border-b-2 px-2 border-opacity-50">SIGN IN</span>
-        <span className="mx-4 text-white font-bold px-2 opacity-40">SIGN UP</span>
+        <span className="mx-4 text-white font-bold border-b-2 px-2 border-opacity-50">LOGIN IN</span>
+        <span className="mx-4 text-white font-bold px-2 opacity-40">REGISTER</span>
       </div>
         <label
           htmlFor="email"

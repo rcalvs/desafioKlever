@@ -7,6 +7,15 @@ As tecnologias utilizadas foram:
 - TailwindCSS
 - [Requisição de API](https://docs.awesomeapi.com.br/api-de-moedas)
 - Jest
+- MirajeJS (removido devido a conflitos com a API) para emular o backend
+
+## Sobre o desafio
+
+O desafio técnico consistia em criar uma aplicação Web que efetue um CRUD (Create, Read, Update and Delete), essa aplicação devia ser elaborada em React e consumir uma API, deve também ser utilizado validação de Inputs e Redux. 
+
+Houve problemas na hora da implementação devido ao server do MirajeJS entrar em conflito com a API utilizada na aplicação, foi removido porém ainda estão mantido no histórico de commits a utilização.
+
+Como ponto adicional, reescrevemos o codigo base para tirar melhor proveito de alguns hooks padrões do React e testes unitários com Jest na tela de Login.
 
 ## [Screenshots da Aplicação](/screenshots/)
 
